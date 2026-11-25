@@ -1,0 +1,59 @@
+name: Reusable Node pnpm CI
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: Node.js version
+        type: string
+        default: "24"
+      pnpm-version:
+        description: pnpm version
+        type: string
+        default: "10"
+      working-directory:
+        description: Working directory
+        type: string
+        default: "."
+      max-old-space-size:
+        description: V8 heap ceiling in MB for typecheck/build
+        type: string
+        default: "4096"
+      verify-command:
+        description: Typecheck / lint / test command
+        type: string
+        default: "pnpm typecheck && pnpm test"
+      timeout-minutes:
+        description: Job timeout in minutes
+        type: number
+        default: 20
+
+jobs:
+  node-pnpm-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    env:
+      NODE_OPTIONS: "--max-old-space-size=${{ inputs.max-old-space-size }}"
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ inputs.pnpm-version }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify
+        run: ${{ inputs.verify-command }}

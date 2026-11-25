@@ -1,0 +1,56 @@
+name: Reusable Release Boundary
+
+on:
+  workflow_call:
+    inputs:
+      paths:
+        description: Space-separated public-facing paths to scan for internal name leaks
+        type: string
+        default: "README.md docs"
+      allow-internal-names:
+        description: Set true only for private internal tooling repositories
+        type: boolean
+        default: false
+      timeout-minutes:
+        description: Job timeout in minutes
+        type: number
+        default: 10
+
+jobs:
+  release-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Public-surface voice & internal-name hygiene check
+        if: ${{ !inputs.allow-internal-names }}
+        env:
+          SCAN_PATHS: ${{ inputs.paths }}
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          from pathlib import Path
+
+          banned = re.compile(r"\b(GodelLoop|KagamiTop)\b")
+          paths = [p for p in os.environ.get("SCAN_PATHS", "").split() if p]
+          hits = []
+          for root_str in paths:
+              root = Path(root_str)
+              if not root.exists():
+                  continue
+              files = [root] if root.is_file() else [f for f in root.rglob("*") if f.is_file() and f.suffix in {".md", ".txt", ".html", ".tsx", ".ts"}]
+              for f in files:
+                  text = f.read_text(encoding="utf-8", errors="ignore")
+                  for i, line in enumerate(text.splitlines(), 1):
+                      m = banned.search(line)
+                      if m:
+                          hits.append(f"{f}:{i}: internal name '{m.group(0)}'")
+          if hits:
+              print("Release boundary check failed:")
+              for h in hits[:50]:
+                  print("  ", h)
+              sys.exit(1)
+          print(f"Release boundary check passed across: {paths}")
+          PY

@@ -1,0 +1,40 @@
+name: Reusable Swift CI
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: Swift package directory
+        type: string
+        default: "."
+      test-command:
+        description: Swift build/test command
+        type: string
+        default: "swift test"
+      timeout-minutes:
+        description: Job timeout in minutes
+        type: number
+        default: 25
+
+jobs:
+  swift-ci:
+    runs-on: macos-15
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache SwiftPM build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ inputs.working-directory }}/.build
+          key: swift-${{ runner.os }}-${{ hashFiles('**/Package.resolved', '**/Package.swift') }}
+          restore-keys: |
+            swift-${{ runner.os }}-
+
+      - name: Build and test
+        run: ${{ inputs.test-command }}

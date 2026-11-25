@@ -1,0 +1,61 @@
+name: Reusable Python CI
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        description: Python version to install
+        type: string
+        default: "3.13"
+      working-directory:
+        description: Working directory for install, lint, and tests
+        type: string
+        default: "."
+      install-command:
+        description: Dependency installation command
+        type: string
+        default: "python -m pip install --upgrade pip && if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; elif [ -f pyproject.toml ]; then pip install -e '.[dev]' || pip install -e .; fi"
+      lint-command:
+        description: Lint command (empty to skip)
+        type: string
+        default: "ruff check ."
+      test-command:
+        description: Test command
+        type: string
+        default: "pytest -q"
+      timeout-minutes:
+        description: Job timeout in minutes
+        type: number
+        default: 15
+
+jobs:
+  python-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure hermetic test git identity
+        run: |
+          git config --global user.name "Awkronos CI"
+          git config --global user.email "ci@awkronos.com"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: ${{ inputs.install-command }}
+
+      - name: Lint
+        if: ${{ inputs.lint-command != '' }}
+        run: ${{ inputs.lint-command }}
+
+      - name: Test
+        run: ${{ inputs.test-command }}
