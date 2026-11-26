@@ -1,0 +1,3287 @@
+{
+ "schema": "awkronos-org-ci-matrix/1",
+ "generated_at_utc": "2026-11-26T01:55:00Z",
+ "population": {
+  "repositories": 66,
+  "public_repositories": 5,
+  "private_repositories": 61,
+  "archived_by_flag": 0
+ },
+ "method": {
+  "source_queries": [
+   "gh repo list awkronos --limit 100 --json name,isArchived,isPrivate,pushedAt,primaryLanguage,defaultBranchRef,description",
+   "gh repo list awkronos --limit 100 --json name,createdAt,updatedAt,isFork,forkCount,diskUsage,hasIssuesEnabled,hasWikiEnabled,hasProjectsEnabled,hasDiscussionsEnabled,stargazerCount,repositoryTopics,homepageUrl",
+   "gh api repos/awkronos/<repo>/actions/workflows?per_page=100",
+   "gh api repos/awkronos/<repo>/contents/<path>",
+   "gh api repos/awkronos/<repo>/actions/runners?per_page=100",
+   "gh api /orgs/awkronos/actions/runners --paginate",
+   "gh api repos/awkronos/<repo>/actions/workflows/<file>/runs?per_page=100",
+   "gh api repos/awkronos/<repo>/actions/runs?status=queued&per_page=100",
+   "gh api repos/awkronos/<repo>/actions/runs?status=in_progress&per_page=100"
+  ],
+  "queue_sample_handles": [
+   "sha256:8d77657ed404",
+   "sha256:bee85d095f19",
+   "sha256:ebc42b4f1dfe",
+   "sha256:a15675621c83",
+   "sha256:4d8006bc40ee",
+   "sha256:722aab10cc7c",
+   "sha256:d9b2e068b492",
+   "sha256:d6ac78746598",
+   "sha256:52f49db284f2",
+   "sha256:06f6f1d528bc"
+  ],
+  "queue_sample": [
+   {
+    "queued": 150,
+    "in_progress": 1
+   },
+   {
+    "queued": 30,
+    "in_progress": 0
+   },
+   {
+    "queued": 2,
+    "in_progress": 0
+   },
+   {
+    "queued": 0,
+    "in_progress": 3
+   },
+   {
+    "queued": 1,
+    "in_progress": 0
+   },
+   {
+    "queued": 3,
+    "in_progress": 0
+   },
+   {
+    "queued": 2,
+    "in_progress": 0
+   },
+   {
+    "queued": 0,
+    "in_progress": 1
+   },
+   {
+    "queued": 0,
+    "in_progress": 0
+   },
+   {
+    "queued": 1,
+    "in_progress": 0
+   }
+  ],
+  "named_view": "Private repository names are not published here. A record's handle is sha256('awkronos/' + name) truncated to 12 hex characters, so any member with org read access can resolve a handle by recomputing it from the live repo list.",
+  "label_view": "Runner labels outside the org's published label set are shown as custom:<6hex> so that host-specific names stay off the public surface. The count and the fact that no online runner carries them are unchanged."
+ },
+ "summary": {
+  "registered_workflow_rows": 168,
+  "dependabot_virtual_rows": 21,
+  "workflow_files_on_default_branch": 128,
+  "workflow_bytes_total": 2503443,
+  "repositories_with_no_ci_count": 9,
+  "repositories_calling_org_reusables": 0,
+  "self_hosted_active_files": 76,
+  "active_files_no_online_runner_can_take_them": 4,
+  "ghost_workflow_registrations": 19,
+  "disabled_manually_registrations": 7,
+  "repo_level_runner_registrations": 30,
+  "repo_level_runners_offline": 23,
+  "org_level_runners": 9,
+  "org_level_runners_online": 5,
+  "lake_build_repositories": 33,
+  "classes": {
+   "active-infra": 13,
+   "archive-candidate": 8,
+   "active-product": 21,
+   "active-math-proof": 24
+  },
+  "languages": {
+   "none": 4,
+   "Lean": 27,
+   "Rust": 9,
+   "Python": 21,
+   "HTML": 2,
+   "C": 1,
+   "TypeScript": 2
+  },
+  "largest_single_workflow_file_bytes": 297658,
+  "median_workflow_file_bytes": 9393,
+  "shared_workflow_filenames": [
+   {
+    "basename": "ci.yml",
+    "repository_count": 29
+   },
+   {
+    "basename": "lean-proof-gate.yml",
+    "repository_count": 8
+   },
+   {
+    "basename": "lean_action_ci.yml",
+    "repository_count": 8
+   },
+   {
+    "basename": "lean-ci.yml",
+    "repository_count": 3
+   },
+   {
+    "basename": "deploy.yml",
+    "repository_count": 3
+   }
+  ],
+  "queue_depth_sample": {
+   "queued": 189,
+   "in_progress": 5,
+   "max_single_repo_queued": 150,
+   "repositories_sampled": 10
+  },
+  "checkout_pins": {
+   "files_calling_checkout": 121,
+   "mutable_tag_versions": {
+    "v4": 37,
+    "v7": 32,
+    "v5": 13,
+    "v7.0.1": 5
+   },
+   "distinct_commit_shas": 3,
+   "files_pinned_by_sha": 35
+  },
+  "repositories_with_no_ci": [
+   "TauCeti",
+   "sha256:eac386f87a5a",
+   "sha256:8c098526c2b1",
+   "sha256:c25d7171ceb3",
+   "sha256:95597efa00e0",
+   "flt-regular",
+   "sha256:2820118c0f34",
+   "sha256:3b5e6f7dfd98",
+   "sha256:c7c4a581dfec"
+  ],
+  "coverage_today": {
+   "repositories_whole_verifiable_job_now": 16,
+   "repositories_lean_guard_eligible_now": 41,
+   "repositories_needing_a_new_caller": 43,
+   "repositories_needing_a_new_caller_active": 42,
+   "lake_build_repositories": 33,
+   "rust_build_repositories": 22,
+   "lake_and_rust_repositories": 12,
+   "uv_install_repositories": 10,
+   "note": "whole_verifiable_job_now counts repositories that are not archive candidates and run neither lake nor cargo, so a single caller covers install, lint and test"
+  },
+  "self_validation": {
+   "reusable_files": 5,
+   "triggers_present": [
+    "workflow_call"
+   ],
+   "has_push_or_pull_request_ci": false,
+   "note": "workflow_call is the only trigger, so no run in this repository executes the reusable set when it changes; a caller edits land unvalidated and fail at each caller's next pull request"
+  }
+ },
+ "reusables": [
+  {
+   "file": "reusable-python-ci.yml",
+   "callable": "workflow_call",
+   "covers": "pip or uv Python suites: install, ruff lint, pytest",
+   "inputs": [
+    "python-version",
+    "working-directory",
+    "install-command",
+    "lint-command",
+    "test-command",
+    "timeout-minutes"
+   ],
+   "gaps": [
+    "no Rust, no Swift, no Lean build, no artifact handoff"
+   ]
+  },
+  {
+   "file": "reusable-node-pnpm-ci.yml",
+   "callable": "workflow_call",
+   "covers": "pnpm workspaces: frozen install, typecheck, test",
+   "inputs": [
+    "node-version",
+    "pnpm-version",
+    "working-directory",
+    "max-old-space-size",
+    "verify-command",
+    "timeout-minutes"
+   ],
+   "gaps": [
+    "assumes a pnpm lockfile; npm and bun suites need their own command string"
+   ]
+  },
+  {
+   "file": "reusable-lean-guard-ci.yml",
+   "callable": "workflow_call",
+   "covers": "structural and receipt guards on ubuntu-latest; deliberately does not build proofs",
+   "inputs": [
+    "guard-command (required)",
+    "python-version",
+    "timeout-minutes"
+   ],
+   "gaps": [
+    "no org reusable builds a Lean project, so proof compilation stays repo-local"
+   ]
+  },
+  {
+   "file": "reusable-swift-ci.yml",
+   "callable": "workflow_call",
+   "covers": "SwiftPM build and test on macos-15 with a Package.resolved cache",
+   "inputs": [
+    "working-directory",
+    "test-command",
+    "timeout-minutes"
+   ],
+   "gaps": [
+    "macos-15 hosted runner only, so it does not use the org pool"
+   ]
+  },
+  {
+   "file": "reusable-release-boundary.yml",
+   "callable": "workflow_call",
+   "covers": "public-surface voice check: scans README and docs for internal names",
+   "inputs": [
+    "paths",
+    "allow-internal-names",
+    "timeout-minutes"
+   ],
+   "gaps": [
+    "scans only .md, .txt, .html, .tsx, .ts, and two banned tokens today; the token list should be a single shared input"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "gap": "no org reusable builds a Lean project",
+   "affected_repositories": 33,
+   "fix": "add reusable-lean-ci.yml: elan toolchain pin input, lake cache keyed on the toolchain plus Mathlib rev, build target input, runner label set input defaulting to the org pool, and a hard timeout"
+  },
+  {
+   "gap": "no org reusable for Rust suites",
+   "affected_repositories": 22,
+   "fix": "add reusable-rust-ci.yml: toolchain input, cargo test and clippy commands, shared target cache"
+  },
+  {
+   "gap": "no reusable is called by any repository yet",
+   "affected_repositories": 66,
+   "fix": "migration wave 0 adds a caller to one Python, one pnpm and one Lean repository, then widens"
+  },
+  {
+   "gap": "repo-scoped runner registrations with no live machine",
+   "affected_repositories": 20,
+   "fix": "remove the offline repo-scoped registrations, move the jobs they served to the org pool label set, and let one owner register ephemeral pool runners instead of one per repository"
+  },
+  {
+   "gap": "ghost workflow registrations",
+   "affected_repositories": 7,
+   "fix": "the file is gone from the default branch but the registration is still listed; stop counting it, and restore only the files whose purpose still exists"
+  },
+  {
+   "gap": "python reusable has no uv install branch",
+   "affected_repositories": 10,
+   "fix": "default install-command should detect uv.lock and run the uv sync path, so uv repositories do not each carry a private install step"
+  },
+  {
+   "gap": "no CI validates this repository's own reusable set",
+   "affected_repositories": 1,
+   "fix": "add a push and pull_request self-test workflow that calls each reusable against a fixture repository or a stub checkout, which is also how a wrong input default gets caught once here instead of in every caller"
+  }
+ ],
+ "public_repositories": [
+  {
+   "visibility": "public",
+   "class": "active-infra",
+   "language": null,
+   "push_age_days": 0.4,
+   "repo_age_days": 237,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 5,
+   "ci_bytes": 7321,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "name": ".github",
+   "description": "Awkronos organization profile",
+   "topics": [],
+   "homepage": "",
+   "workflows": [
+    {
+     "path": ".github/workflows/reusable-lean-guard-ci.yml",
+     "name": "Reusable Lean Guard CI",
+     "state": "active",
+     "bytes": 1067,
+     "file_present": true,
+     "triggers": [
+      "workflow_call"
+     ],
+     "crons": [],
+     "runs_on": [
+      "ubuntu-latest"
+     ],
+     "reusable_calls": [],
+     "self_hosted": false
+    },
+    {
+     "path": ".github/workflows/reusable-node-pnpm-ci.yml",
+     "name": "Reusable Node pnpm CI",
+     "state": "active",
+     "bytes": 1505,
+     "file_present": true,
+     "triggers": [
+      "workflow_call"
+     ],
+     "crons": [],
+     "runs_on": [
+      "ubuntu-latest"
+     ],
+     "reusable_calls": [],
+     "self_hosted": false
+    },
+    {
+     "path": ".github/workflows/reusable-python-ci.yml",
+     "name": "Reusable Python CI",
+     "state": "active",
+     "bytes": 1783,
+     "file_present": true,
+     "triggers": [
+      "workflow_call"
+     ],
+     "crons": [],
+     "runs_on": [
+      "ubuntu-latest"
+     ],
+     "reusable_calls": [],
+     "self_hosted": false
+    },
+    {
+     "path": ".github/workflows/reusable-release-boundary.yml",
+     "name": "Reusable Release Boundary",
+     "state": "active",
+     "bytes": 1938,
+     "file_present": true,
+     "triggers": [
+      "workflow_call"
+     ],
+     "crons": [],
+     "runs_on": [
+      "ubuntu-latest"
+     ],
+     "reusable_calls": [],
+     "self_hosted": false
+    },
+    {
+     "path": ".github/workflows/reusable-swift-ci.yml",
+     "name": "Reusable Swift CI",
+     "state": "active",
+     "bytes": 1028,
+     "file_present": true,
+     "triggers": [
+      "workflow_call"
+     ],
+     "crons": [],
+     "runs_on": [
+      "macos-15"
+     ],
+     "reusable_calls": [],
+     "self_hosted": false
+    }
+   ]
+  },
+  {
+   "visibility": "public",
+   "class": "archive-candidate",
+   "language": "Lean",
+   "push_age_days": 15.1,
+   "repo_age_days": 15,
+   "default_branch": "main",
+   "is_fork": true,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "15.1 days since last push",
+    "no workflow file on the default branch",
+    "fork of an upstream repo"
+   ],
+   "name": "TauCeti",
+   "description": "An AIs-welcome Lean library downstream of Mathlib: AI handle the implementation and review, humans write the roadmaps and review rubrics",
+   "topics": [],
+   "homepage": "https://taucetiproject.org/",
+   "workflows": []
+  },
+  {
+   "visibility": "public",
+   "class": "archive-candidate",
+   "language": "Lean",
+   "push_age_days": 15.1,
+   "repo_age_days": 15,
+   "default_branch": "master",
+   "is_fork": true,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "15.1 days since last push",
+    "no workflow file on the default branch",
+    "fork of an upstream repo"
+   ],
+   "name": "flt-regular",
+   "description": "Fermat's Last Theorem for regular primes",
+   "topics": [],
+   "homepage": "",
+   "workflows": []
+  },
+  {
+   "visibility": "public",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.2,
+   "repo_age_days": 134,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 8457,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "name": "navier",
+   "description": "Lean formalization of forced Navier\u2013Stokes breakdown, unforced regularity frontiers, and a Rust spectral fluid solver",
+   "topics": [
+    "cfd",
+    "fluid-dynamics",
+    "formal-verification",
+    "lean4",
+    "mathlib",
+    "navier-stokes",
+    "partial-differential-equations",
+    "rust",
+    "spectral-methods",
+    "theorem-proving"
+   ],
+   "homepage": "https://navier.awkronos.com/",
+   "workflows": [
+    {
+     "path": ".github/workflows/ci.yml",
+     "name": "Verify",
+     "state": "active",
+     "bytes": 8457,
+     "file_present": true,
+     "triggers": [
+      "pull_request",
+      "push",
+      "workflow_dispatch"
+     ],
+     "crons": [],
+     "runs_on": [
+      "ubuntu-latest",
+      "ubuntu-latest",
+      "[self-hosted, lean]"
+     ],
+     "reusable_calls": [],
+     "self_hosted": true
+    }
+   ]
+  },
+  {
+   "visibility": "public",
+   "class": "active-product",
+   "language": "HTML",
+   "push_age_days": 0.9,
+   "repo_age_days": 295,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 2401,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-node-pnpm-ci.yml",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "name": "web",
+   "description": "Agent Data Pod \u2014 An open specification for portable, private AI agent storage on Solid",
+   "topics": [],
+   "homepage": "https://awkronos.github.io/web/",
+   "workflows": [
+    {
+     "path": ".github/workflows/deploy.yml",
+     "name": "Deploy to GitHub Pages",
+     "state": "active",
+     "bytes": 2401,
+     "file_present": true,
+     "triggers": [
+      "pull_request",
+      "push",
+      "schedule",
+      "workflow_dispatch"
+     ],
+     "crons": [
+      "53 13 * * *"
+     ],
+     "runs_on": [
+      "ubuntu-latest",
+      "ubuntu-latest"
+     ],
+     "reusable_calls": [],
+     "self_hosted": false
+    }
+   ]
+  }
+ ],
+ "private_repositories": [
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 0.2,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 7373,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:a8c635747290",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.1,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 22609,
+   "ci_self_hosted_files": 2,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:32a0aceb19e3",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Rust",
+   "push_age_days": 3.3,
+   "repo_age_days": 164,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 15678,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:8e5f9fd28943",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pnpm",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 3.3,
+   "repo_age_days": 147,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 6075,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:410c36d4592e",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "mypy",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 3.4,
+   "repo_age_days": 331,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 17555,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:9d8086350366",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "inline_heredoc",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.2,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 4571,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:67c12a8670b3",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.3,
+   "repo_age_days": 133,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 28641,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:1117abf40d87",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "archive-candidate",
+   "language": null,
+   "push_age_days": 12.1,
+   "repo_age_days": 12,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "12.1 days since last push",
+    "no primary language, no CI",
+    "no workflow file on the default branch"
+   ],
+   "handle": "sha256:eac386f87a5a",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "archive-candidate",
+   "language": null,
+   "push_age_days": 12.1,
+   "repo_age_days": 12,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "12.1 days since last push",
+    "no primary language, no CI",
+    "no workflow file on the default branch"
+   ],
+   "handle": "sha256:8c098526c2b1",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 1.6,
+   "repo_age_days": 120,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 90514,
+   "ci_self_hosted_files": 2,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:37fdb83c0ea3",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "inline_heredoc",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "archive-candidate",
+   "language": "Python",
+   "push_age_days": 12.1,
+   "repo_age_days": 12,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "12.1 days since last push",
+    "no workflow file on the default branch"
+   ],
+   "handle": "sha256:c25d7171ceb3",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.2,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 18872,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:67c822d67be5",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "elan",
+     "inline_heredoc",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 1.6,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 14025,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:ecbc78f24ce3",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Rust",
+   "push_age_days": 0.9,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 6983,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:a298d3955543",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 4.9,
+   "repo_age_days": 26,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:95597efa00e0",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 0.3,
+   "repo_age_days": 61,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 31858,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:52f49db284f2",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 1.6,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 2976,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:7073e24b4233",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.1,
+   "repo_age_days": 269,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 3,
+   "ci_bytes": 45804,
+   "ci_self_hosted_files": 3,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 2,
+    "online": 1
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:a0bc0ce8ece3",
+   "workflow_inventory": {
+    "registered_rows": 4,
+    "files_absent_on_default_branch": 1,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "pat",
+     "paths_ignore",
+     "pull_request",
+     "secrets_github_token",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.0,
+   "repo_age_days": 128,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 74708,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:d6ac78746598",
+   "workflow_inventory": {
+    "registered_rows": 3,
+    "files_absent_on_default_branch": 1,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "inline_heredoc",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 0.9,
+   "repo_age_days": 206,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 9,
+   "ci_bytes": 70936,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:085d1e8730c6",
+   "workflow_inventory": {
+    "registered_rows": 9,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "docker",
+     "pat",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "secrets_github_token",
+     "uv",
+     "vercel",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 0.1,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 49113,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:6b87d78854a3",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "uv"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.1,
+   "repo_age_days": 133,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 10015,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:378a6253d23f",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.5,
+   "repo_age_days": 236,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 3,
+   "ci_bytes": 92287,
+   "ci_self_hosted_files": 3,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 1
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:587ce64128b0",
+   "workflow_inventory": {
+    "registered_rows": 3,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "lake",
+     "pat",
+     "paths_ignore",
+     "pull_request",
+     "secrets_github_token",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 1.6,
+   "repo_age_days": 223,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 30494,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:0dda04a160dd",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "pat",
+     "paths_ignore",
+     "pull_request"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 3.7,
+   "repo_age_days": 109,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 6059,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:ee8c4dd8acd6",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 3.4,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 13063,
+   "ci_self_hosted_files": 2,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:37a2aa700c07",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "pull_request",
+     "pytest",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 0.0,
+   "repo_age_days": 332,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 23,
+   "ci_bytes": 694444,
+   "ci_self_hosted_files": 14,
+   "ci_scheduled_files": 10,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 8,
+    "online": 4
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:8d77657ed404",
+   "workflow_inventory": {
+    "registered_rows": 30,
+    "files_absent_on_default_branch": 7,
+    "disabled_manually": 6,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "elan",
+     "inline_heredoc",
+     "lake",
+     "mypy",
+     "pat",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "secrets_github_token",
+     "swift",
+     "uv",
+     "workflow_dispatch",
+     "xcodebuild"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 0.1,
+   "repo_age_days": 318,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 3,
+   "ci_bytes": 41709,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "jobs_no_online_runner": [
+    {
+     "path_digest": "dec3866630bb",
+     "labels_required": [
+      [
+       "custom:8597d3",
+       "self-hosted"
+      ]
+     ]
+    }
+   ],
+   "handle": "sha256:b8a73a2651df",
+   "workflow_inventory": {
+    "registered_rows": 3,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "pat",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "secrets_github_token",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 0.1,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 22400,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:43681a927630",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 0.3,
+   "repo_age_days": 28,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:2820118c0f34",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 2.4,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 6860,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:e09a71a165e4",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 2.0,
+   "repo_age_days": 190,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 14503,
+   "ci_self_hosted_files": 2,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:06a596ccefb6",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "docker",
+     "inline_heredoc",
+     "mypy",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "archive-candidate",
+   "language": "Python",
+   "push_age_days": 3.4,
+   "repo_age_days": 167,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 43444,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "description carries a deprecation, snapshot or probe marker"
+   ],
+   "handle": "sha256:0237a22e4f0d",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 1,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "lake",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "archive-candidate",
+   "language": null,
+   "push_age_days": 15.1,
+   "repo_age_days": 206,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "15.1 days since last push",
+    "description carries a deprecation, snapshot or probe marker",
+    "no primary language, no CI",
+    "no workflow file on the default branch"
+   ],
+   "handle": "sha256:3b5e6f7dfd98",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "archive-candidate",
+   "language": "Lean",
+   "push_age_days": 12.1,
+   "repo_age_days": 12,
+   "default_branch": "consolidate-1113-local-state",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 0,
+   "ci_bytes": 0,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "none"
+   ],
+   "decision": "archive-candidate",
+   "decision_reasons": [
+    "12.1 days since last push",
+    "default branch is not main or master",
+    "no workflow file on the default branch"
+   ],
+   "handle": "sha256:c7c4a581dfec",
+   "workflow_inventory": {
+    "registered_rows": 0,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": []
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 2.0,
+   "repo_age_days": 26,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 9743,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:a0b4502d737f",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "HTML",
+   "push_age_days": 3.1,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 7127,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:b49ddad1e47a",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "docker",
+     "paths_ignore",
+     "pull_request",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 0.0,
+   "repo_age_days": 36,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 14523,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:3f270bfb8618",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.2,
+   "repo_age_days": 238,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 40737,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:60659d64b9d9",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "uv",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 5.2,
+   "repo_age_days": 132,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 4926,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:2f4f0a31ba63",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 1.8,
+   "repo_age_days": 231,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 8803,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:25716e60c4bd",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.1,
+   "repo_age_days": 206,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 110798,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:bee85d095f19",
+   "workflow_inventory": {
+    "registered_rows": 2,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "elan",
+     "lake",
+     "mypy",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 0.1,
+   "repo_age_days": 208,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 4,
+   "ci_bytes": 35326,
+   "ci_self_hosted_files": 3,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "jobs_no_online_runner": [
+    {
+     "path_digest": "9ba3184cb01a",
+     "labels_required": [
+      [
+       "custom:85e2d0",
+       "linux",
+       "self-hosted",
+       "x64"
+      ]
+     ]
+    }
+   ],
+   "handle": "sha256:e6f59d99da08",
+   "workflow_inventory": {
+    "registered_rows": 4,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "elan",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 2.1,
+   "repo_age_days": 270,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 4,
+   "ci_bytes": 30791,
+   "ci_self_hosted_files": 3,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "jobs_no_online_runner": [
+    {
+     "path_digest": "bbdea2374379",
+     "labels_required": [
+      [
+       "custom:1b429e",
+       "self-hosted"
+      ]
+     ]
+    }
+   ],
+   "handle": "sha256:cb7a3f422d9d",
+   "workflow_inventory": {
+    "registered_rows": 4,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "mypy",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "ruff",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.2,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 30462,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:d9b2e068b492",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.1,
+   "repo_age_days": 248,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 7,
+   "ci_bytes": 152651,
+   "ci_self_hosted_files": 7,
+   "ci_scheduled_files": 4,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 2,
+    "online": 1
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:ebc42b4f1dfe",
+   "workflow_inventory": {
+    "registered_rows": 8,
+    "files_absent_on_default_branch": 1,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.0,
+   "repo_age_days": 151,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 115393,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:a15675621c83",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 1.6,
+   "repo_age_days": 223,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 3,
+   "ci_bytes": 24375,
+   "ci_self_hosted_files": 3,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:76aca8745031",
+   "workflow_inventory": {
+    "registered_rows": 3,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 4.2,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 13400,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:2cc22aad2393",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 0.2,
+   "repo_age_days": 6,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 7042,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:06f6f1d528bc",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "pat",
+     "secrets_github_token",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 4.9,
+   "repo_age_days": 33,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 6382,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:9033022d4ba4",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 1.6,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 7029,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:67bc1542c184",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "C",
+   "push_age_days": 2.8,
+   "repo_age_days": 61,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 3465,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:eeb734b91f94",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "swift",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-infra",
+   "language": "Python",
+   "push_age_days": 0.9,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 3643,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:1cb3b76b0eb8",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 0.2,
+   "repo_age_days": 223,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 2,
+   "ci_bytes": 43758,
+   "ci_self_hosted_files": 2,
+   "ci_scheduled_files": 1,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "jobs_no_online_runner": [
+    {
+     "path_digest": "8ba9a2e5c553",
+     "labels_required": [
+      [
+       "control-plane",
+       "self-hosted"
+      ]
+     ]
+    }
+   ],
+   "handle": "sha256:58449e462410",
+   "workflow_inventory": {
+    "registered_rows": 5,
+    "files_absent_on_default_branch": 3,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "cargo",
+     "paths_ignore",
+     "pull_request",
+     "pytest",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 0.9,
+   "repo_age_days": 64,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 94688,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-swift-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:3c873e2d75d9",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "docker",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "TypeScript",
+   "push_age_days": 3.3,
+   "repo_age_days": 309,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 6320,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-node-pnpm-ci.yml",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:0e553b5b13ef",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "pull_request"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "TypeScript",
+   "push_age_days": 0.1,
+   "repo_age_days": 232,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 5,
+   "ci_bytes": 115678,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-node-pnpm-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:4d8006bc40ee",
+   "workflow_inventory": {
+    "registered_rows": 10,
+    "files_absent_on_default_branch": 5,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "docker",
+     "inline_heredoc",
+     "pat",
+     "paths_ignore",
+     "pnpm",
+     "pull_request",
+     "pytest",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Rust",
+   "push_age_days": 0.2,
+   "repo_age_days": 137,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 12478,
+   "ci_self_hosted_files": 0,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:d139d965c5e9",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "elan",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-product",
+   "language": "Python",
+   "push_age_days": 0.2,
+   "repo_age_days": 46,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 5,
+   "ci_bytes": 98481,
+   "ci_self_hosted_files": 2,
+   "ci_scheduled_files": 2,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 1,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml",
+    "reusable-python-ci.yml (guards) or repo-owned Rust job; no org Rust reusable exists",
+    "reusable-release-boundary.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:722aab10cc7c",
+   "workflow_inventory": {
+    "registered_rows": 6,
+    "files_absent_on_default_branch": 1,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cargo",
+     "inline_heredoc",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "workflow_dispatch"
+    ]
+   }
+  },
+  {
+   "visibility": "private",
+   "class": "active-math-proof",
+   "language": "Lean",
+   "push_age_days": 2.2,
+   "repo_age_days": 237,
+   "default_branch": "main",
+   "is_fork": false,
+   "archived_flag": false,
+   "ci_files_on_default_branch": 1,
+   "ci_bytes": 3676,
+   "ci_self_hosted_files": 1,
+   "ci_scheduled_files": 0,
+   "ci_callers_of_org_reusables": 0,
+   "runner_registrations": {
+    "total": 0,
+    "online": 0
+   },
+   "target_reusables": [
+    "reusable-lean-guard-ci.yml",
+    "reusable-python-ci.yml"
+   ],
+   "decision": "migrate",
+   "handle": "sha256:d0a25de1a642",
+   "workflow_inventory": {
+    "registered_rows": 1,
+    "files_absent_on_default_branch": 0,
+    "disabled_manually": 0,
+    "lake_build_jobs": 0,
+    "stack_features": [
+     "cache",
+     "lake",
+     "paths_ignore",
+     "pull_request",
+     "pytest"
+    ]
+   }
+  }
+ ],
+ "prune": {
+  "archive_candidates_public": [
+   "TauCeti",
+   "flt-regular"
+  ],
+  "archive_candidates_private_handles": [
+   "sha256:eac386f87a5a",
+   "sha256:8c098526c2b1",
+   "sha256:c25d7171ceb3",
+   "sha256:0237a22e4f0d",
+   "sha256:3b5e6f7dfd98",
+   "sha256:c7c4a581dfec"
+  ],
+  "ghost_registrations": [
+   {
+    "repo": "sha256:a0bc0ce8ece3",
+    "path_digest": "30c92c777468",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:d6ac78746598",
+    "path_digest": "1e9d3c01c54c",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "4d40590172f3",
+    "registration_state": "disabled_manually"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "71931ad2e9c3",
+    "registration_state": "disabled_manually"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "9432fc6ce45b",
+    "registration_state": "disabled_manually"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "8587d8a82928",
+    "registration_state": "disabled_manually"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "f898e9201a36",
+    "registration_state": "disabled_manually"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "b12d43d23aa0",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:8d77657ed404",
+    "path_digest": "c6a9dc24f61e",
+    "registration_state": "disabled_manually"
+   },
+   {
+    "repo": "sha256:ebc42b4f1dfe",
+    "path_digest": "99555a7278bf",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:58449e462410",
+    "path_digest": "a197dc3e0ef6",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:58449e462410",
+    "path_digest": "b0f6d00727f2",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:58449e462410",
+    "path_digest": "5190672b5a52",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:4d8006bc40ee",
+    "path_digest": "2062e1269d2a",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:4d8006bc40ee",
+    "path_digest": "1565911038fe",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:4d8006bc40ee",
+    "path_digest": "69a4a69b8579",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:4d8006bc40ee",
+    "path_digest": "6888677c5c65",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:4d8006bc40ee",
+    "path_digest": "e79d1a1ed0aa",
+    "registration_state": "active"
+   },
+   {
+    "repo": "sha256:722aab10cc7c",
+    "path_digest": "91b11b3b8cbc",
+    "registration_state": "active"
+   }
+  ],
+  "jobs_with_no_capable_runner": [
+   {
+    "repo": "sha256:b8a73a2651df",
+    "path_digest": "dec3866630bb",
+    "labels_required": [
+     "custom:8597d3",
+     "self-hosted"
+    ]
+   },
+   {
+    "repo": "sha256:e6f59d99da08",
+    "path_digest": "9ba3184cb01a",
+    "labels_required": [
+     "custom:85e2d0",
+     "linux",
+     "self-hosted",
+     "x64"
+    ]
+   },
+   {
+    "repo": "sha256:cb7a3f422d9d",
+    "path_digest": "bbdea2374379",
+    "labels_required": [
+     "custom:1b429e",
+     "self-hosted"
+    ]
+   },
+   {
+    "repo": "sha256:58449e462410",
+    "path_digest": "8ba9a2e5c553",
+    "labels_required": [
+     "control-plane",
+     "self-hosted"
+    ]
+   }
+  ],
+  "scheduled_files_on_repos_without_online_repo_runner": [
+   {
+    "repo": "sha256:8e5f9fd28943",
+    "path_digest": "508999fae5d1"
+   },
+   {
+    "repo": "sha256:37fdb83c0ea3",
+    "path_digest": "fa050466315b"
+   },
+   {
+    "repo": "sha256:06a596ccefb6",
+    "path_digest": "3489e38215f6"
+   },
+   {
+    "repo": "sha256:76aca8745031",
+    "path_digest": "30f235afdcfb"
+   },
+   {
+    "repo": "sha256:58449e462410",
+    "path_digest": "ff0db553c5c6"
+   },
+   {
+    "repo": "sha256:722aab10cc7c",
+    "path_digest": "885ab7801eda"
+   },
+   {
+    "repo": "sha256:722aab10cc7c",
+    "path_digest": "3b1ce11174cd"
+   }
+  ],
+  "runner_trap_run_histories": [
+   {
+    "repo": "sha256:58449e462410",
+    "path_digest": "8ba9a2e5c553",
+    "recorded_runs": 165,
+    "window_sampled": 100,
+    "run_status": {
+     "completed": 98,
+     "pending": 2
+    },
+    "run_conclusions": {
+     "cancelled": 98,
+     "null_pending": 2
+    },
+    "runs_with_a_result": 0,
+    "newest_run_created": "2026-11-26T02:05:01Z",
+    "newest_run_event": "schedule",
+    "captured_at_utc": "2026-11-26T02:17:00Z",
+    "is_one_of_the_unsatisfiable_jobs": true
+   },
+   {
+    "repo": "sha256:e6f59d99da08",
+    "path_digest": "9ba3184cb01a",
+    "recorded_runs": 0,
+    "window_sampled": 0,
+    "run_status": {},
+    "run_conclusions": {},
+    "runs_with_a_result": 0,
+    "newest_run_created": null,
+    "newest_run_event": null,
+    "captured_at_utc": "2026-11-26T02:17:00Z",
+    "is_one_of_the_unsatisfiable_jobs": true
+   },
+   {
+    "repo": "sha256:b8a73a2651df",
+    "path_digest": "dec3866630bb",
+    "recorded_runs": 462,
+    "window_sampled": 100,
+    "run_status": {
+     "completed": 98,
+     "pending": 1,
+     "queued": 1
+    },
+    "run_conclusions": {
+     "cancelled": 47,
+     "failure": 51,
+     "null_in_flight": 2
+    },
+    "runs_with_a_result": 51,
+    "newest_run_created": "2026-11-25T23:46:18Z",
+    "newest_run_event": "push",
+    "captured_at_utc": "2026-11-26T02:17:00Z",
+    "is_one_of_the_unsatisfiable_jobs": true
+   },
+   {
+    "repo": "sha256:cb7a3f422d9d",
+    "path_digest": "bbdea2374379",
+    "recorded_runs": 1,
+    "window_sampled": 1,
+    "run_status": {
+     "completed": 1
+    },
+    "run_conclusions": {
+     "cancelled": 1
+    },
+    "runs_with_a_result": 0,
+    "newest_run_created": "2026-10-11T14:01:23Z",
+    "newest_run_event": "workflow_dispatch",
+    "captured_at_utc": "2026-11-26T02:17:00Z",
+    "is_one_of_the_unsatisfiable_jobs": true
+   }
+  ]
+ },
+ "migration": {
+  "wave_0_pilot": [
+   "public host repository callers, one Python product repository, one pnpm product repository, one Lean proof repository"
+  ],
+  "wave_1": "every repository in class active-product: replace per-repo install, lint and test steps with the Python or pnpm caller, keep deploy jobs repo-local",
+  "wave_2": "every repository in class active-math-proof: replace per-repo structural guards with the Lean guard caller, keep proof builds on the org pool label set",
+  "wave_3": "every repository in class active-infra: single caller plus the release boundary where the surface is public",
+  "wave_4": "archive candidates: turn the repository read-only, delete its workflow files, drop its runner registrations",
+  "acceptance": "after each wave, ci_callers_of_org_reusables is nonzero for that wave, ci_self_hosted_files falls to only the jobs that need the pool, registered rows with no file on the default branch stop growing, and no active file asks for a label no online runner carries"
+ }
+}
